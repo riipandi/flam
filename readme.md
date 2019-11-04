@@ -153,19 +153,19 @@ Change the `productName` in `package.json`
 MacOS
 
 ```bash
-$ electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds
+$ electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=build_release
 ```
 
 Windows
 
 ```bash
-$ electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName="Virtual Drumming"
+$ electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=build_release --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName="Virtual Drumming"
 ```
 
 Linux (Ubuntu)
 
 ```bash
-$ electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds
+$ electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=build_release
 ```
 
 #### Shortcuts
@@ -205,10 +205,10 @@ $ npm install electron-installer-dmg -g
 ### Create the DMG
 
 ```bash
-$ electron-installer-dmg ./release-builds/Electron\ webview-darwin-x64/Electron\ webview.app electron-webview --out=release-builds --overwrite --icon=assets/icons/mac/icon.icns
+$ electron-installer-dmg ./build_release/Electron\ webview-darwin-x64/Electron\ webview.app electron-webview --out=build_release --overwrite --icon=assets/icons/mac/icon.icns
 ```
 
-An `electron-webview.dmg` file is now created in the `release-builds` folder.
+An `electron-webview.dmg` file is now created in the `build_release` folder.
 
 ### Shortcuts
 

@@ -1,22 +1,25 @@
 {
-  "name": "electron-virtualdrum",
-  "productName": "Virtual Drumming",
+  "name": "virtualdrum",
+  "productName": "virtualdrum",
   "version": "1.0.0",
   "description": "Electron webview for virtualdrumming",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
-    "package:win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Virtual Drumming\"",
-    "package:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds",
-    "installer:mac": "electron-installer-dmg ./release-builds/Electron\\ webview-darwin-x64/Electron\\ webview.app electron-webview --out=release-builds --overwrite --icon=assets/icons/mac/icon.icns"
+    "build:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=build_release",
+    "build:win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --icon=assets/icons/win/icon.ico --prune=true --out=build_release",
+    "build:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=build_release",
+    "installer:mac": "electron-installer-dmg ./build_release/virtualdrum-darwin-x64/virtualdrum.app electron-webview --out=build_release --overwrite --icon=assets/icons/mac/icon.icns",
+    "installer:win": "electron-installer-windows --src \"./build_release/virtualdrum-win32-x64/\" --dest build-installer/"
   },
   "author": "Aris Ripandi",
   "license": "MIT",
   "devDependencies": {
     "electron": "~7.0.0",
     "electron-installer-dmg": "^3.0.0",
-    "electron-packager": "^14.1.0"
+    "electron-installer-windows": "^2.0.0",
+    "electron-packager": "^14.1.0",
+    "v8-compile-cache": "^2.1.0"
   },
   "dependencies": {}
 }
