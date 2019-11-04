@@ -1,3 +1,4 @@
+window.onload = doLayout;
 window.onresize = doLayout;
 
 onload = () => {
@@ -16,4 +17,7 @@ function doLayout() {
 
   webview.style.width = windowWidth + 'px';
   webview.style.height = webviewHeight + 'px';
+
+  webview.openDevTools();
+  webview.insertCSS('.drum-games-container {margin: 0px auto;} #fb-root, #nav-back, .drum-games-container header, .drum-games-container article, .drum-games-container footer, .drum-games-container .drum-games-more { display: none !important; }');
 }

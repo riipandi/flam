@@ -1,3 +1,12 @@
 html, body {
 	background-color: #ffffff !important;
 }
+
+#fb-root,
+#nav-back,
+.drum-games-container header,
+.drum-games-container article,
+.drum-games-container footer,
+.drum-games-container .drum-games-more {
+    display: none !important;
+}

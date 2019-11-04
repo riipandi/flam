@@ -86,11 +86,12 @@ app.on("ready", () => {
 
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 650,
+    height: 580,
     minWidth: 620,
-    minHeight: 500,
+    minHeight: 580,
     darkTheme: true,
     plugins: true,
+    autoHideMenuBar: true,
     icon: path.join(__dirname, "assets/icons/png/64x64.png"),
     //titleBarStyle: 'hidden',
     //frame: false,
@@ -116,11 +117,6 @@ app.on("ready", () => {
 
   // load the page
   mainWindow.loadURL("file://" + __dirname + "/index.html")
-
-  // Customization
-  mainWindow.webContents.insertCSS(
-    fs.readFileSync(path.join(__dirname, "assets/css/custom.css"), "utf-8")
-  )
 
   // Display Dev Tools
   // mainWindow.openDevTools();
