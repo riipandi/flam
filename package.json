@@ -10,7 +10,7 @@
     "build:win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=x64 --icon=assets/icons/win/icon.ico --prune=true --out=build_release",
     "build:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=build_release",
     "installer:mac": "electron-installer-dmg ./build_release/virtualdrum-darwin-x64/virtualdrum.app electron-webview --out=build_release --overwrite --icon=assets/icons/mac/icon.icns",
-    "installer:win": "electron-installer-windows --src \"./build_release/virtualdrum-win32-x64/\" --dest build-installer/"
+    "installer:win": "electron-installer-windows --src ./build_release/virtualdrum-win32-x64/ --dest build-installer/"
   },
   "author": "Aris Ripandi",
   "license": "MIT",
