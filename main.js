@@ -1,4 +1,4 @@
-require('v8-compile-cache');
+require("v8-compile-cache")
 
 const electron = require("electron")
 const app = electron.app
@@ -78,7 +78,6 @@ let initPath
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on("ready", () => {
-
   initPath = path.join(app.getPath("userData"), "init.json")
 
   try {
@@ -87,7 +86,7 @@ app.on("ready", () => {
 
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 650,
     minWidth: 620,
     minHeight: 500,
     darkTheme: true,
@@ -104,33 +103,26 @@ app.on("ready", () => {
   })
 
   if (session.defaultSession === undefined) {
-    throw new Error('defaultSession is undefined');
+    throw new Error("defaultSession is undefined")
   }
 
   // adblocker
-  const blocker = ElectronBlocker.parse(fs.readFileSync(path.join(__dirname, "easylist.txt"), 'utf-8'));
+  const blocker = ElectronBlocker.parse(
+    fs.readFileSync(path.join(__dirname, "easylist.txt"), "utf-8")
+  )
   // const blocker = ElectronBlocker.fromLists(fetch, ['https://easylist.to/easylist/easylist.txt']);
-  blocker.enableBlockingInSession(session.defaultSession);
+  blocker.enableBlockingInSession(session.defaultSession)
 
   // load the page
   mainWindow.loadURL("file://" + __dirname + "/index.html")
 
-  // Strore session
-  const ses = mainWindow.webContents.session
-  console.log(ses.getUserAgent())
-
   // Customization
-  mainWindow.webContents.on("did-finish-load", function() {
-    fs.readFile(path.join(__dirname, "assets/css/custom.css"), "utf-8", function(error, data) {
-      if (!error) {
-        var formatedData = data.replace(/\s{2,10}/g, " ").trim()
-        mainWindow.webContents.insertCSS(formatedData)
-      }
-    })
-  })
+  mainWindow.webContents.insertCSS(
+    fs.readFileSync(path.join(__dirname, "assets/css/custom.css"), "utf-8")
+  )
 
   // Display Dev Tools
-  //mainWindow.openDevTools();
+  // mainWindow.openDevTools();
 
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
