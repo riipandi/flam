@@ -18,6 +18,13 @@
         <webview id="webview" autosize="on" src="https://www.virtualdrumming.com/drums/online-virtual-games/joey-jordison-drums.html" data-home="https://www.virtualdrumming.com/drums/online-virtual-games/joey-jordison-drums.html"></webview>
 
         <!-- Scripts -->
-        <script src="assets/js/webview.js"></script>
+<script>
+    var webview = document.getElementById('webview');
+    webview.addEventListener('dom-ready', function () {
+        webview.insertCSS('html,body{ background-color: #FF0000 !important;}')
+    });
+
+</script>
+        <!-- <script src="assets/js/webview.js"></script> -->
     </body>
 </html>
