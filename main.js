@@ -3,12 +3,17 @@ require('v8-compile-cache');
 const electron = require("electron")
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
+const session = electron.session
 
 const path = require("path")
 const fs = require("fs")
 
 // Menu (for standard keyboard shortcuts)
 const { Menu } = require("electron")
+
+// Adblocker
+const fetch = require("cross-fetch")
+const { ElectronBlocker, Request } = require("@cliqz/adblocker-electron")
 
 const template = [
   {
@@ -88,13 +93,12 @@ let initPath
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on("ready", () => {
+
   initPath = path.join(app.getPath("userData"), "init.json")
 
   try {
     data = JSON.parse(fs.readFileSync(initPath, "utf8"))
   } catch (e) {}
-
-  //   BrowserWindow.addExtension('/path/to/extension');
 
   mainWindow = new BrowserWindow({
     width: 800,
@@ -114,7 +118,21 @@ app.on("ready", () => {
     }
   })
 
+  if (session.defaultSession === undefined) {
+    throw new Error('defaultSession is undefined');
+  }
+
+  // adblocker
+  const blocker = ElectronBlocker.parse(fs.readFileSync(path.join(__dirname, "easylist.txt"), 'utf-8'));
+  // const blocker = ElectronBlocker.fromLists(fetch, ['https://easylist.to/easylist/easylist.txt']);
+  blocker.enableBlockingInSession(session.defaultSession);
+
+  // load the page
   mainWindow.loadURL("file://" + __dirname + "/index.html")
+
+  // Strore session
+  const ses = mainWindow.webContents.session
+  console.log(ses.getUserAgent())
 
   // Customization
   mainWindow.webContents.on("did-finish-load", function() {
