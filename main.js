@@ -94,6 +94,7 @@ app.on("ready", () => {
     icon: path.join(__dirname, "assets/icons/png/64x64.png"),
     //titleBarStyle: 'hidden',
     //frame: false,
+    title: "Virtual Drumming",
     backgroundColor: "#000000",
     webPreferences: {
       nodeIntegration: true,
