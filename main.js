@@ -13,25 +13,11 @@ const { Menu } = require("electron")
 
 // Adblocker
 const fetch = require("cross-fetch")
-const { ElectronBlocker, Request } = require("@cliqz/adblocker-electron")
+const { ElectronBlocker } = require("@cliqz/adblocker-electron")
 
 const template = [
   {
-    label: "Edit",
-    submenu: [
-      { role: "undo" },
-      { role: "redo" },
-      { type: "separator" },
-      { role: "cut" },
-      { role: "copy" },
-      { role: "paste" },
-      { role: "pasteandmatchstyle" },
-      { role: "delete" },
-      { role: "selectall" }
-    ]
-  },
-  {
-    label: "View",
+    label: "Menu",
     submenu: [
       { role: "reload" },
       { role: "forcereload" },
@@ -41,12 +27,11 @@ const template = [
       { role: "zoomin" },
       { role: "zoomout" },
       { type: "separator" },
-      { role: "togglefullscreen" }
+      { role: "togglefullscreen" },
+      { type: "separator" },
+      { role: "minimize" },
+      { role: "close" }
     ]
-  },
-  {
-    role: "window",
-    submenu: [{ role: "minimize" }, { role: "close" }]
   }
 ]
 
