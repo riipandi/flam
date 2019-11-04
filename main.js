@@ -86,11 +86,13 @@ app.on("ready", () => {
 
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 580,
-    minWidth: 620,
-    minHeight: 580,
+    height: 590,
+    minWidth: 800,
+    minHeight: 590,
     darkTheme: true,
     plugins: true,
+    resizable: true,
+    maximizable: true,
     autoHideMenuBar: true,
     icon: path.join(__dirname, "assets/icons/png/64x64.png"),
     //titleBarStyle: 'hidden',

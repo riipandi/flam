@@ -1,5 +1,6 @@
-html, body {
-	background-color: #ffffff !important;
+html,
+body {
+    height: 100%;
 }
 
 #fb-root,
@@ -10,3 +11,15 @@ html, body {
 .drum-games-container .drum-games-more {
     display: none !important;
 }
+
+/* .drum-games-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.drums-wrapper {
+    background-color: #b10dc9;
+    width: 300px;
+    height: 300px;
+} */
