@@ -4,6 +4,7 @@ const electron = require("electron")
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const session = electron.session
+// const PDFWindow = require('electron-pdf-window')
 
 const path = require("path")
 const fs = require("fs")
@@ -88,11 +89,10 @@ app.on("ready", () => {
 
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 590,
+    height: 620,
     minWidth: 800,
-    minHeight: 590,
+    minHeight: 620,
     darkTheme: true,
-    plugins: true,
     resizable: true,
     maximizable: true,
     autoHideMenuBar: true,
@@ -102,11 +102,14 @@ app.on("ready", () => {
     title: "Virtual Drumming",
     backgroundColor: "#000000",
     webPreferences: {
+      plugins: true,
       nodeIntegration: true,
       webviewTag: true,
       zoomFactor: 1.0
     }
   })
+
+  // PDFWindow.addSupport(mainWindow)
 
   if (session.defaultSession === undefined) {
     throw new Error("defaultSession is undefined")
@@ -120,10 +123,15 @@ app.on("ready", () => {
   blocker.enableBlockingInSession(session.defaultSession)
 
   // load the page
-  mainWindow.loadURL("file://" + __dirname + "/index.html")
+  let targetUrl = 'https://www.virtualdrumming.com/drums/online-virtual-games/joey-jordison-drums.html'
+  // let targetUrl = 'https://www.google.com/search?q=user+agent+check'
 
-  // Display Dev Tools
-  // mainWindow.openDevTools();
+  // mainWindow.loadURL("file://" + __dirname + "/index.html")
+  mainWindow.loadURL(targetUrl, {userAgent: 'X-Browser'});
+  mainWindow.webContents.on('did-finish-load', function() {
+    let cssStyle = 'html, body { height: 100%; margin: 0; padding: 0;} #fb-root, #nav-back, .drum-games-container header, .drum-games-container article, .drum-games-container footer, .drum-games-container .drum-games-more { display: none !important; }'
+    mainWindow.webContents.insertCSS(cssStyle)
+  });
 
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)
