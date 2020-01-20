@@ -1,7 +1,7 @@
 {
   "name": "virtualdrum",
   "productName": "virtualdrum",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Electron webview for virtualdrumming",
   "main": "main.js",
   "scripts": {
