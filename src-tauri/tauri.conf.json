@@ -6,7 +6,7 @@
         "distDir": "../dist"
     },
     "package": {
-        "productName": "flam",
+        "productName": "Flam",
         "version": "0.1.0"
     },
     "tauri": {
@@ -16,7 +16,7 @@
         "bundle": {
             "active": true,
             "category": "DeveloperTool",
-            "copyright": "",
+            "copyright": "Copyright © Aris Ripandi",
             "deb": {
                 "depends": []
             },
@@ -28,7 +28,7 @@
                 "icons/icon.icns",
                 "icons/icon.ico"
             ],
-            "identifier": "com.getflame.app",
+            "identifier": "com.getflam.app",
             "longDescription": "",
             "macOS": {
                 "entitlements": null,
@@ -57,7 +57,7 @@
                 "fullscreen": false,
                 "height": 600,
                 "resizable": true,
-                "title": "flam",
+                "title": "Flam Virtual Drum",
                 "width": 800
             }
         ]

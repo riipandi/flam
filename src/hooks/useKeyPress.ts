@@ -10,6 +10,7 @@ function useKeyPress(targetKey: string, sound: string | undefined): boolean {
       setKeyPressed(true)
       const audio = new Audio(sound)
       audio.loop = false
+      audio.volume = 0.5
       audio.play()
     }
   }

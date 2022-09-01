@@ -1,14 +1,171 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri + React + TS</title>
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        <meta name="pinterest" content="nopin" />
+
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+
+        <title>Real Drum Online - Touch & Play</title>
+        <meta name="description" CONTENT="Have the best online experience with this exclusive drum`s">
+
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:url" content="https://getflam.com/" />
+        <meta property="og:site_name" content="Real Drum Online" />
+        <meta property="og:title" content="Become the king of the drums" />
+        <meta property="og:description" content="Have the best online experience with this exclusive drum`s" />
+        <meta property="og:image" content="https://getflam.com/assets/images/face.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/favicons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/assets/images/favicons/ms-icon-144x144.png">
+
+        <meta name="theme-color" content="#0F0F0F">
+        <link rel="stylesheet" type="text/css" href="/styles/drum.css" />
+    </head>
+
+    <body id="drumonline">
+        <section id="versao-desk" class="d-none d-sm-none d-md-block">
+           <div class="container">
+
+               <div class="row">
+                   <div id="drum" class="drum background-responsive col-12" data-aos="fade-in" data-aos-delay="500" data-aos-duration="1000">
+
+                       <div id="chimbal1" class="element">
+                           <div></div>
+                       </div>
+
+                       <div id="splash" class="element"></div>
+
+                       <div id="chimbal2" class="element">
+                           <div></div>
+                       </div>
+
+                       <div id="ride" class="element">
+                           <div></div>
+                           <div id="bell"></div>
+                       </div>
+
+                       <div id="close" class="element"></div>
+
+                       <div id="open" class="element">
+                           <div></div>
+                       </div>
+
+                       <div id="tom1" class="element"></div>
+
+                       <div id="tom2" class="element"></div>
+
+                       <div id="tom3" class="element"></div>
+
+                       <div id="snare" class="element"></div>
+
+                       <div id="kickl" class="element"></div>
+
+                       <div id="kickr" class="element"></div>
+
+                       <div id="floor" class="element"></div>
+
+                   </div>
+               </div>
+
+               <div class="row select-keyboard" data-aos="fade-in" data-aos-delay="700" data-aos-duration="1400">
+                   <div class="col-4" style="padding-left: 90px; padding-top: 20px">
+                       <span>Layout 1</span>
+                       <label class="switch">
+                           <input type="checkbox" onclick="myKeyboard()">
+                           <span class="slider round"></span>
+                       </label>
+                       <span>Layout 2</span>
+                   </div>
+
+                   <div class="col-4" style="padding-left: 90px; padding-top: 20px">
+                       <span>Full Top View</span>
+                       <label class="switch">
+                           <input type="checkbox" onclick="myBg()">
+                           <span class="slider round"></span>
+                       </label>
+
+                   </div>
+
+                   <div class="col-4 d-flex justify-content-end pr-5">
+
+
+
+                       <div class="knob-surround" style="margin-right: 90px;">
+
+                           <div class="knob" id="knobitem"></div>
+
+                           <span class="min">Min</span>
+                           <span class="max">Max</span>
+
+                           <div class="ticks">
+                               <div class="tick activetick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                               <div class="tick"></div>
+                           </div>
+
+                       </div>
+                   </div>
+               </div>
+
+               <div class="row">
+                   <div id="teclado" class="teclado background-responsive col-12" data-aos="fade-in" data-aos-delay="700" data-aos-duration="1000"></div>
+               </div>
+           </div>
+        </section>
+
+
+        <!-- JS libraries -->
+        <script src="/libs/jquery-3.4.1.min.js"></script>
+        <script src="/libs/aos.js"></script>
+        <script src="/libs/bootstrap.min.js"></script>
+        <script src="/libs/ion.sound.min.js"></script>
+        <script src="/libs/popper.min.js"></script>
+        <script src="/libs/input-knobs.js"></script>
+
+        <!-- Drum JS-->
+        <script src="/drum.js"></script>
+    </body>
 </html>
