@@ -6,21 +6,56 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
+        "build:mac:arm": "tauri build --target aarch64-apple-darwin",
+        "build:mac:x64": "tauri build --target x86_64-apple-darwin",
+        "lint": "pnpx prettier src --check && eslint src",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+        "clean": "cd src-tauri && cargo clean",
         "preview": "vite preview",
         "tauri": "tauri"
     },
     "dependencies": {
-        "react": "^18.2.0",
+        "@tauri-apps/api": "^1.0.2",
         "react-dom": "^18.2.0",
-        "@tauri-apps/api": "^1.0.2"
+        "react": "^18.2.0",
+        "zustand": "^4.1.1"
     },
     "devDependencies": {
+        "@tauri-apps/cli": "^1.0.5",
         "@types/node": "^18.7.14",
-        "@types/react": "^18.0.18",
         "@types/react-dom": "^18.0.6",
+        "@types/react": "^18.0.18",
+        "@typescript-eslint/eslint-plugin": "^5.36.1",
+        "@typescript-eslint/parser": "^5.36.1",
         "@vitejs/plugin-react": "^2.0.1",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jsx-a11y": "^6.6.1",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react": "^7.31.1",
+        "eslint": "^8.23.0",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
+        "prettier": "^2.7.1",
         "typescript": "~4.7.4",
-        "vite": "^3.0.9",
-        "@tauri-apps/cli": "^1.0.5"
+        "vite": "^3.0.9"
+    },
+    "prettier": {
+        "jsxSingleQuote": true,
+        "semi": false,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "useTabs": false
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx,json,css,scss,ts,tsx,html,graphql}": [
+            "pnpm run format --uncommitted"
+        ]
     }
 }
