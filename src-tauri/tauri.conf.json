@@ -11,7 +11,16 @@
     },
     "tauri": {
         "allowlist": {
-            "all": true
+            "all": false,
+            "fs": {
+                "writeFile": true
+            },
+            "shell": {
+                "execute": true
+            },
+            "dialog": {
+                "save": true
+            }
         },
         "bundle": {
             "active": true,
@@ -41,6 +50,9 @@
             "shortDescription": "",
             "targets": "all",
             "windows": {
+                "webviewInstallMode": {
+                    "type": "offlineInstaller"
+                },
                 "certificateThumbprint": null,
                 "digestAlgorithm": "sha256",
                 "timestampUrl": ""
@@ -54,11 +66,22 @@
         },
         "windows": [
             {
-                "fullscreen": false,
-                "height": 600,
-                "resizable": true,
+                "label": "main",
                 "title": "Flam Virtual Drum",
+                "fullscreen": false,
+                "resizable": true,
+                "visible": false,
+                "minHeight": 600,
+                "minWidth": 800,
+                "height": 600,
                 "width": 800
+            },
+            {
+                "label": "splashscreen",
+                "url": "splashscreen.html",
+                "decorations": false,
+                "height": 340,
+                "width": 600
             }
         ]
     }
