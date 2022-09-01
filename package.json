@@ -6,8 +6,8 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
-        "build:mac:arm": "tauri build --target aarch64-apple-darwin",
         "build:mac:x64": "tauri build --target x86_64-apple-darwin",
+        "build:mac:arm": "tauri build --target aarch64-apple-darwin",
         "lint": "pnpx prettier src --check && eslint src",
         "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
         "clean": "cd src-tauri && cargo clean",
