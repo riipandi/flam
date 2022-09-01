@@ -607,7 +607,6 @@ dependencies = [
  "serde_json",
  "tauri",
  "tauri-build",
- "wry 0.20.2",
 ]
 
 [[package]]
@@ -1999,15 +1998,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "raw-window-handle"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ed7e3d950b66e19e0c372f3fa3fbbcf85b1746b571f74e0c2af6042a5c93420a"
-dependencies = [
- "cty",
-]
-
-[[package]]
 name = "redox_syscall"
 version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2080,7 +2070,7 @@ dependencies = [
  "objc",
  "objc-foundation",
  "objc_id",
- "raw-window-handle 0.4.3",
+ "raw-window-handle",
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "web-sys",
@@ -2486,53 +2476,7 @@ dependencies = [
  "parking_lot",
  "paste",
  "png 0.17.5",
- "raw-window-handle 0.4.3",
- "scopeguard",
- "serde",
- "unicode-segmentation",
- "uuid 1.1.2",
- "windows 0.37.0",
- "windows-implement",
- "x11-dl",
-]
-
-[[package]]
-name = "tao"
-version = "0.13.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a2093fa6bba3cc0c185b21c900de1b757e66637e78848cbcdda967b836d8c0ec"
-dependencies = [
- "bitflags",
- "cairo-rs",
- "cc",
- "cocoa",
- "core-foundation",
- "core-graphics",
- "crossbeam-channel",
- "dispatch",
- "gdk",
- "gdk-pixbuf",
- "gdk-sys",
- "gdkx11-sys",
- "gio",
- "glib",
- "glib-sys",
- "gtk",
- "image",
- "instant",
- "jni 0.19.0",
- "lazy_static",
- "libc",
- "log",
- "ndk",
- "ndk-context",
- "ndk-sys",
- "objc",
- "once_cell",
- "parking_lot",
- "paste",
- "png 0.17.5",
- "raw-window-handle 0.5.0",
+ "raw-window-handle",
  "scopeguard",
  "serde",
  "unicode-segmentation",
@@ -2577,7 +2521,7 @@ dependencies = [
  "os_pipe",
  "percent-encoding",
  "rand 0.8.5",
- "raw-window-handle 0.4.3",
+ "raw-window-handle",
  "regex",
  "rfd",
  "semver 1.0.13",
@@ -2668,7 +2612,7 @@ dependencies = [
  "http",
  "http-range",
  "infer",
- "raw-window-handle 0.4.3",
+ "raw-window-handle",
  "serde",
  "serde_json",
  "tauri-utils",
@@ -2688,14 +2632,14 @@ dependencies = [
  "gtk",
  "percent-encoding",
  "rand 0.8.5",
- "raw-window-handle 0.4.3",
+ "raw-window-handle",
  "tauri-runtime",
  "tauri-utils",
  "uuid 1.1.2",
  "webkit2gtk",
  "webview2-com",
  "windows 0.37.0",
- "wry 0.19.0",
+ "wry",
 ]
 
 [[package]]
@@ -3444,39 +3388,7 @@ dependencies = [
  "once_cell",
  "serde",
  "serde_json",
- "tao 0.12.2",
- "thiserror",
- "url",
- "webkit2gtk",
- "webkit2gtk-sys",
- "webview2-com",
- "windows 0.37.0",
- "windows-implement",
-]
-
-[[package]]
-name = "wry"
-version = "0.20.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ea48fb3b68ab76f62837bfcea63baed9a185dbec9c14d4e5d70033e22fefffd2"
-dependencies = [
- "block",
- "cocoa",
- "core-graphics",
- "crossbeam-channel",
- "gdk",
- "gio",
- "glib",
- "gtk",
- "http",
- "libc",
- "log",
- "objc",
- "objc_id",
- "once_cell",
- "serde",
- "serde_json",
- "tao 0.13.3",
+ "tao",
  "thiserror",
  "url",
  "webkit2gtk",

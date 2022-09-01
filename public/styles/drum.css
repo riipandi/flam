@@ -536,9 +536,9 @@ body:after {
 
 .drum {
   background-image: url("../assets/images/fundo.png");
-  margin-top: 50px;
   background-size: 80%;
   height: 500px;
+  margin-top: 30px;
 }
 .drum .element {
   border-radius: 120px;

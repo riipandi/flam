@@ -70,13 +70,15 @@
                 "title": "Flam Virtual Drum",
                 "fullscreen": false,
                 "resizable": true,
+                "maximized": false,
                 "visible": false,
-                "minHeight": 600,
-                "minWidth": 800,
-                "height": 600,
-                "width": 800
+                "minHeight": 680,
+                "minWidth": 1210,
+                "height": 680,
+                "width": 1210
             },
             {
+                "visible": true,
                 "label": "splashscreen",
                 "url": "splashscreen.html",
                 "decorations": false,
