@@ -1,233 +1,45 @@
-# Electron Virtual Drumming
+# Tauri + React + Typescript
 
-This is a simple Electron application to create a webview.
+This template should help get you started developing with Tauri, React and Typescript in Vite.
 
-Features:
+## Recommended IDE Setup
 
-- Responsive window
-- Remember the window dimensions when reopening
-- Menu & keyboard shortcuts for MacOs
-- No title bar
-- Home button
-- Print function
-- MacOS, Windows and Linux executable with an app icon
-- DMG installer for Mac
+-   [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 
-This app application needs just these files:
+## Scrapping Audio
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render website. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's renderer process.
-- `assets/` - Assets for the project (style, scripts, icons)
+```plain
+# Rock Drum Set
+https://www.virtualdrumming.com/drums/online-virtual-games/travis-barker-drum.html
+https://www.virtualdrumming.com/drums/online-virtual-games/michael-bland-drum-beats.html
+https://www.virtualdrumming.com/drums/online-virtual-games/john-bonham-drum-set.html
+https://www.virtualdrumming.com/drums/online-virtual-games/phil-collins-drum-beats.html
+https://www.virtualdrumming.com/drums/online-virtual-games/tre-cool-drum-set.html
+https://www.virtualdrumming.com/drums/online-virtual-games/stewart-copeland-drums.html
+https://www.virtualdrumming.com/drums/online-virtual-games/josh-dun-twenty-one-pilots.html
+https://www.virtualdrumming.com/drums/online-virtual-games/dave-grohl-drums.html
+https://www.virtualdrumming.com/drums/online-virtual-games/ian-paice-rock-drum-set.html
+https://www.virtualdrumming.com/drums/online-virtual-games/jeff-porcaro-drum-beats.html
+https://www.virtualdrumming.com/drums/online-virtual-games/roger-taylor-queen-drums.html
 
-## Usage
+# Metal Drum Set
+https://www.virtualdrumming.com/drums/online-virtual-games/joey-jordison-drums.html
+https://www.virtualdrumming.com/drums/online-virtual-games/nicko-mcbrain-drums.html
+https://www.virtualdrumming.com/drums/online-virtual-games/mike-portnoy-drum-set.html
+https://www.virtualdrumming.com/drums/online-virtual-games/jimmy-the-rev-sullivan.html
+https://www.virtualdrumming.com/drums/online-virtual-games/lars-ulrich-drums.html
 
-To run this repository you'll need [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+# Jazz Drum Set
+https://www.virtualdrumming.com/drums/online-virtual-games/steve-gadd-drum-beats.html
+https://www.virtualdrumming.com/drums/online-virtual-games/elvin-jones-jazz-drum-set.html
+https://www.virtualdrumming.com/drums/online-virtual-games/philly-joe-jones-drums.html
+https://www.virtualdrumming.com/drums/online-virtual-games/dave-weckl-virtual-drummer.html
+https://www.virtualdrumming.com/drums/online-virtual-games/tony-williams-jazz-drums.html
 
-```bash
-# Install dependencies
-$ npm install
-# Run the app
-$ npm start
+# Original Drum Set
+https://www.virtualdrumming.com/drums/online-virtual-games/online-virtual-games-drums.html
+https://www.virtualdrumming.com/drums/online-virtual-games/double-bass-drum-pedal.html
+https://www.virtualdrumming.com/drums/online-virtual-games/hip-hop-drum-kits.html
+https://www.virtualdrumming.com/drums/online-virtual-games/vintage-drums.html
+https://www.virtualdrumming.com/drums/online-virtual-games/virtual-live-drums.html
 ```
-
-### Configuration
-
-You just need to change the `src` attribute of the `webview` in `index.html` file to display the url you want in your webview.
-
-### Developer tools
-
-You can show by default the developer tools by uncommenting in `main.js` file: `mainWindow.openDevTools();`.
-
-### Title bar
-
-You can hide the title bar of the app by setting `frame: false` or `titleBarStyle: 'hidden'` when creating the window in `main.js` in `mainWindow` variable.
-
-If you keep displaying the topbar using `titleBarStyle: 'hidden'` setting, you would have to adjust the topbar style.
-
-For example:
-
-```css
-#controls {
-    padding-top: 1.5em;
-}
-```
-
-### Window dimensions and responsive
-
-This webview is responsive and supports live dimensions change of the window.
-This webview remembers the window size you have before quitting the app to use it when you open it again.
-
-If you want to change the window dimensions at the first start, change `width` and `height` in `main.js` file in `mainWindow` variable when creating the window.
-
-### Menu and keyboard shortcuts
-
-This webview integrates an Electron menu. It will also make standard keyboard shortcuts, like copy and paste, work on MacOS.
-
-You can modify this menu in `main.js` file.
-
-### Topbar (home and print buttons)
-
-A topbar to show buttons:
-- "Home" button to come back to your app if your website has external links.
-- "Print" button to print the current url displayed by the webview.
-
-You can activate/deactivate this topbar (activate by default).
-
-#### Deactivation
-
-##### In `index.html`:
-
-- Comment:
-  ```html
-  <link rel="stylesheet" href="assets/css/topbar.css">
-  ```
-  ```html
-  <div id="controls">...</div>
-  ```
-  ```html
-    <script src="assets/js/topbar.js"></script>
-  ```
-
-- Uncomment:
-  ```html
-  <link rel="stylesheet" href="assets/css/no-topbar.css">
-  ```
-
-##### In `assets/js/webview.js`:
-
-- Comment:
-  ```js
-  // Topbar functions
-  homeButton();
-  printButton();
-  ```
-
-#### Activation
-
-- Do the opposite of what you did in the activation chapter above.
-- Don't forget to set the homepage of your app in the `data-home` attribute of `webview` in `index.html` file to make the "Home" button works.
-
-## Application
-
-To create a MacOS, Windows and Linux executable with an app icon, follow these instructions.
-
-### Electron app icon
-
-For this we need a 1024x1024 png-icon, a .icns for macs and a .ico for windows. For Linux we only need the pngs.
-
-- Create your app icon
-
-- Go to [iConvert Icons](https://iconverticons.com/online/) and upload the PNG and the service will take care of creating the other icon-formats.
-
-- Add your files in `assets/icons`: put the `.icns` file into the `mac` folder, the pngs in the png folder and the `.ico` file in the win folder.<br>Rename the `.icns` and `.ico` files in `icon`.
-
-#### Mac
-
-On Mac, the `.icns` icon converted with iConvert Icons doesn't work.
-
-I recommend using [Image2icon](http://www.img2icnsapp.com), an awesome free app to create and personalize icons from your pictures, available on the Mac Store.
-
-The `.icns` icon converted with Image2icon perfectly works on Mac.
-
-### Electron packager
-
-"[Electron Packager](https://github.com/electron-userland/electron-packager) is a command line tool and Node.js library that bundles Electron-based application source code with a renamed Electron executable and supporting files into folders ready for distribution."
-
-#### Install Electron packager
-
-```bash
-# for use in npm scripts
-$ npm install electron-packager --save-dev
-
-# for use from cli
-$ npm install electron-packager -g
-```
-
-#### Application name
-
-Change the `productName` in `package.json`
-
-#### Build MacOS, Windows and Linux package from the terminal
-
-MacOS
-
-```bash
-$ electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=build_release
-```
-
-Windows
-
-```bash
-$ electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=build_release --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName="Virtual Drumming"
-```
-
-Linux (Ubuntu)
-
-```bash
-$ electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=build_release
-```
-
-#### Shortcuts
-
-To make it easier to create new builds, scripts are added in `package.json`.
-
-Now you can run:
-
-```bash
-$ npm run package-mac
-```
-
-```bash
-$ npm run package-win
-```
-
-```bash
-$ npm run package-linux
-```
-
-## Mac installer
-
-To create a DMG installer for our Electron app we can use the [electron-installer-dmg](https://github.com/mongodb-js/electron-installer-dmg) package.
-
-To create a DMG installer you first need to package the app as we saw in the Application chapter above.
-
-### Install
-
-```bash
-# For use in npm scripts
-$ npm install electron-installer-dmg --save-dev
-
-# For use from cli
-$ npm install electron-installer-dmg -g
-```
-
-### Create the DMG
-
-```bash
-$ electron-installer-dmg ./build_release/Electron\ webview-darwin-x64/Electron\ webview.app electron-webview --out=build_release --overwrite --icon=assets/icons/mac/icon.icns
-```
-
-An `electron-webview.dmg` file is now created in the `build_release` folder.
-
-### Shortcuts
-
-To make it easier to create new DMG installer, a script is added in `package.json`.
-
-Now you can run:
-
-```bash
-$ npm run create-installer-mac
-```
-
-## Source
-
-Based on:
-
-- [Electron Packager tutorial](https://www.christianengvall.se/electron-packager-tutorial/)
-- [Browser](https://github.com/hokein/electron-sample-apps/tree/master/webview/browser)
-- [Printing](https://github.com/hokein/electron-sample-apps/tree/master/printing)
-
-## License
-
-[MIT](LICENSE.md)
