@@ -1,49 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import { invoke } from '@tauri-apps/api/tauri'
-import './styles/app.css'
+import useKeyPress from './hooks/useKeyPress'
 
-function App() {
-  const [greetMsg, setGreetMsg] = useState('')
-  const [name, setName] = useState('')
+import tom from './assets/sounds/tom.wav'
+import boom from './assets/sounds/boom.wav'
+import clap from './assets/sounds/clap.wav'
+import hithat from './assets/sounds/hihat.wav'
+import kick from './assets/sounds/kick.wav'
+import openhat from './assets/sounds/openhat.wav'
+import ride from './assets/sounds/ride.wav'
+import snare from './assets/sounds/snare.wav'
+import tink from './assets/sounds/tink.wav'
 
-  async function greet() {
-    setGreetMsg(await invoke('greet', { name }))
-  }
+export default function App() {
+  // Call our hook for each key that we'd like to monitor
+  const tomSound: boolean = useKeyPress('a', tom)
+  const boomSound: boolean = useKeyPress('s', boom)
+  const clapSound: boolean = useKeyPress('d', clap)
+  const hithatSound: boolean = useKeyPress('f', hithat)
+  const kickSound: boolean = useKeyPress('g', kick)
+  const openhatSound: boolean = useKeyPress('h', openhat)
+  const rideSound: boolean = useKeyPress('j', ride)
+  const snareSound: boolean = useKeyPress('k', snare)
+  const tinkSound: boolean = useKeyPress('l', tink)
 
   return (
-    <div className='container'>
-      <h1>Welcome to Tauri!</h1>
-
-      <div className='row'>
-        <a href='https://vitejs.dev' target='_blank' rel='noopener noreferrer'>
-          <img src='/vite.svg' className='logo vite' alt='Vite logo' />
-        </a>
-        <a href='https://tauri.app' target='_blank' rel='noopener noreferrer'>
-          <img src='/tauri.svg' className='logo tauri' alt='Tauri logo' />
-        </a>
-        <a href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
+    <div className='App'>
+      <h1>Flam Drumkit</h1>
+      <div className='drums'>
+        <button>{tomSound ? 'tom' : 'a'}</button>
+        <button>{boomSound ? 'boom' : 's'}</button>
+        <button>{clapSound ? 'clap' : 'd'}</button>
+        <button>{hithatSound ? 'hithat' : 'f'}</button>
+        <button>{kickSound ? 'kick' : 'g'}</button>
+        <button>{openhatSound ? 'openhat' : 'h'}</button>
+        <button>{rideSound ? 'ride' : 'j'}</button>
+        <button>{snareSound ? 'snare' : 'k'}</button>
+        <button>{tinkSound ? 'tink' : 'l'}</button>
       </div>
-
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-      <div className='row'>
-        <div>
-          <input
-            id='greet-input'
-            onChange={(e) => setName(e.currentTarget.value)}
-            placeholder='Enter a name...'
-          />
-          <button type='button' onClick={() => greet()}>
-            Greet
-          </button>
-        </div>
-      </div>
-      <p>{greetMsg}</p>
     </div>
   )
 }
 
-export default App
+// Hook
